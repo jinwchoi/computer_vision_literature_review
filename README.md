@@ -32,6 +32,7 @@ Jinwoo's literature review on computer vision and machine learning papers
 
 ### Temporal Action Detection
 * [Detecting the Moment of Completion: Temporal Models for Localising Action Completion](https://arxiv.org/abs/1710.02310) - F. Heidarivincheh et al, arXiv2017.
+
 In this paper, they try to detect a moment of an action completion. They want to separate pre-completion and post-completion of an action frame-by-frame. They define the "completion" as the "goal" of an action is achieved. They use HMM and LSTM on top of ConvNet feature to detect a completion of an action.
 
 * [CDC: Convolutional-De-Convolutional Networks for Precise Temporal Action Localization in Untrimmed Videos](https://arxiv.org/abs/1703.01515/) - Z. Shou et al, CVPR2017. [[code]](https://bitbucket.org/columbiadvmm/cdc)
