@@ -33,6 +33,8 @@ Jinwoo's literature review on computer vision and machine learning papers
 ### Temporal Action Detection
 * [Detecting the Moment of Completion: Temporal Models for Localising Action Completion](https://arxiv.org/abs/1710.02310) - F. Heidarivincheh et al, arXiv2017.
 
+"A trial for detecting action completions using ConvNet + HMM/LSTM."
+
 In this paper, we try to detect a moment of an action completion. We want to separate pre-completion and post-completion of an action frame-by-frame. We define the "completion" as the "goal" of an action is achieved. We use HMM and LSTM on top of ConvNet feature to detect a completion of an action. 
 
 For HMM, we have 2 hidden states, pre and post. The parameters of HMM, initial and transition probs, covariance matrices and mean vectors are learnt from training data. For LSTM, we feed fc7 feature and per-frame labels (pre or post) to LSTM as an input.
