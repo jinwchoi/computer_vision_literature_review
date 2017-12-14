@@ -1,6 +1,5 @@
-# computer_vision_literature_review
+# Computer Vision Literature Review
 Jinwoo's literature review on computer vision and machine learning papers
-
 
 ## Contents
  - [Action Recognition](#action-recognition)
