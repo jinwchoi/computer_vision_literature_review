@@ -35,9 +35,9 @@ Jinwoo's literature review on computer vision and machine learning papers
 
 In this paper, we try to detect a moment of an action completion. We want to separate pre-completion and post-completion of an action frame-by-frame. We define the "completion" as the "goal" of an action is achieved. We use HMM and LSTM on top of ConvNet feature to detect a completion of an action. 
 
-For HMM, we have 2 hidden states, pre and post. The parameters of HMM, initial and transition probs, covariance matrices and mean vectors are learnt from training data. For LSTM, we feed fc7 feature and per-frame labels (pre or post) to LSTM as an input. 
+For HMM, we have 2 hidden states, pre and post. The parameters of HMM, initial and transition probs, covariance matrices and mean vectors are learnt from training data. For LSTM, we feed fc7 feature and per-frame labels (pre or post) to LSTM as an input.
 
-
+Experimental results are quite trivial. Both models can detect the completion of an action with a reasonable accuracy, 75% within 10 frames, under strong assumptions: temporally trimmed sequences (no multiple actions per sequence), momentary completion (completion should be detected using only one frame even for human), and uniform prior for completion (50:50 chance of complete vs. incomplete).
 
 * [CDC: Convolutional-De-Convolutional Networks for Precise Temporal Action Localization in Untrimmed Videos](https://arxiv.org/abs/1703.01515/) - Z. Shou et al, CVPR2017. [[code]](https://bitbucket.org/columbiadvmm/cdc)
 * [SST: Single-Stream Temporal Action Proposals](http://vision.stanford.edu/pdf/buch2017cvpr.pdf) - S. Buch et al, CVPR2017. [[code]](https://github.com/shyamal-b/sst)
