@@ -75,6 +75,7 @@ Experimental results are quite trivial. Both models can detect the completion of
 * [Rethinking Spatiotemporal Feature Learning For Video Understanding}(https://arxiv.org/pdf/1712.04851.pdf) - S. Xie et al, arXiv2017. 
 
 "Improving I3D, called S3D-G"
+
 In this paper, I3D, which inflates all the 2D filters of the InceptionNet to 3D, is enhanced. First, we replace 3D convolutions in a bottom layers to 2D and get higher accuracy and computation efficiency and more compact model. Second, we separate temporal convolution from spatial convolution in every 3D convolution layer. This also makes higher accuracy, more compact model, and faster speed. Finally, spatiotemporal gating is introduced to further boost the accuracy. We show their model performance on the large scale Kinetics dataset for an ablation study. Also we show the proposed model, S3D-G, is generalizable to other tasks such as action classification and detection. 
 
 Action classification performance: 96.8% on UCF-101, 75.9% on HMDB-51 (pretrained on Kinetics)
