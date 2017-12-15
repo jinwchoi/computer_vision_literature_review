@@ -72,6 +72,15 @@ Experimental results are quite trivial. Both models can detect the completion of
 * [Convolutional Two-Stream Network Fusion for Video Action Recognition](https://arxiv.org/pdf/1604.06573.pdf) - C. Feichtenhofer et al, CVPR2016. [[code]](https://github.com/feichtenhofer/twostreamfusion)
 
 ### Video Representation
+* [Rethinking Spatiotemporal Feature Learning For Video Understanding}(https://arxiv.org/pdf/1712.04851.pdf) - S. Xie et al, arXiv2017. 
+
+"Improving I3D, called S3D-G"
+In this paper, I3D, which inflates all the 2D filters of the InceptionNet to 3D, is enhanced. First, we replace 3D convolutions in a bottom layers to 2D and get higher accuracy and computation efficiency and more compact model. Second, we separate temporal convolution from spatial convolution in every 3D convolution layer. This also makes higher accuracy, more compact model, and faster speed. Finally, spatiotemporal gating is introduced to further boost the accuracy. We show their model performance on the large scale Kinetics dataset for an ablation study. Also we show the proposed model, S3D-G, is generalizable to other tasks such as action classification and detection. 
+
+Action classification performance: 96.8% on UCF-101, 75.9% on HMDB-51 (pretrained on Kinetics)
+Action detection performance: 80.1% on UCF-101, 72.1% on JHMDB (pretrained on Kinetics)
+Maybe most gains come from the Kinetics dataset pretraining.
+
 * [ConvNet Architecture Search for Spatiotemporal Feature Learning](https://arxiv.org/abs/1708.05038) - D. Tran et al, arXiv2017. Note: Aka Res3D. [[code]](https://github.com/facebook/C3D): In the repository, C3D-v1.1 is the Res3D implementation.
 
 "3D version of ResNet"
