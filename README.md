@@ -78,7 +78,7 @@ In this paper, an attention weighted pooling method is proposed. With a rank 1 a
 * [Convolutional Two-Stream Network Fusion for Video Action Recognition](https://arxiv.org/pdf/1604.06573.pdf) - C. Feichtenhofer et al, CVPR2016. [[code]](https://github.com/feichtenhofer/twostreamfusion)
 
 ### Video Representation
-* [Rethinking Spatiotemporal Feature Learning For Video Understanding}(https://arxiv.org/pdf/1712.04851.pdf) - S. Xie et al, arXiv2017. 
+* [Rethinking Spatiotemporal Feature Learning For Video Understanding](https://arxiv.org/pdf/1712.04851.pdf) - S. Xie et al, arXiv2017. 
 
 "Improving I3D, called S3D-G"
 
