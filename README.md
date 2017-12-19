@@ -11,17 +11,17 @@ Jinwoo's literature review on computer vision and machine learning papers
 ### Spatio-Temporal Action Detection
 * [Unsupervised Action Discovery and Localization in Videos](http://openaccess.thecvf.com/content_ICCV_2017/papers/Soomro_Unsupervised_Action_Discovery_ICCV_2017_paper.pdf) - K. Soomro and M. Shah, ICCV2017.
 
-"Unsupervised Spatio-Temporal Action Detection"
- - First paper on unsupervised action detection problem
- - Discriminative clustering to discovery which labels are presented in a dataset
-   - Use sepctral clustering to get initial clusters
-   - Iteratively selects videos from the non-dominant set 
- - Obtain spatio-temporal annotations by
-   - Oversegmenting the video using supervoxel 
-   - Constructing DAG 
-   - Solving knapsack optimization with temporal constraints: determine wether to include a supervoxel in the current "action" or not
- - Shows competitive performance (in terms of AUC) compared to supervised methods
- - Might be applied for weakly supervised action detection problem solving
+  "Unsupervised Spatio-Temporal Action Detection"
+   - First paper on unsupervised action detection problem
+   - Discriminative clustering to discovery which labels are presented in a dataset
+     - Use sepctral clustering to get initial clusters
+     - Iteratively selects videos from the non-dominant set 
+   - Obtain spatio-temporal annotations by
+     - Oversegmenting the video using supervoxel 
+     - Constructing DAG 
+     - Solving knapsack optimization with temporal constraints: determine wether to include a supervoxel in the current "action" or not
+   - Shows competitive performance (in terms of AUC) compared to supervised methods
+   - Might be applied for weakly supervised action detection problem solving
 
 * [Action Tubelet Detector for Spatio-Temporal Action Localization](https://arxiv.org/abs/1705.01861) - V. Kalogeiton et al., ICCV2017. [[code]](https://github.com/vkalogeiton/caffe/tree/act-detector) [[project web]](http://thoth.inrialpes.fr/src/ACTdetector/)
 * [Tube Convolutional Neural Network (T-CNN) for Action Detection in Videos](https://128.84.21.199/pdf/1703.10664.pdf) - [R. Hou](http://www.cs.ucf.edu/~rhou/) et al., ICCV2017. [[project web]](http://crcv.ucf.edu/projects/TCNN/)
