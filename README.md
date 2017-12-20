@@ -34,6 +34,17 @@ Jinwoo's literature review on computer vision and machine learning papers
 
 * [Online Real time Multiple Spatiotemporal Action Localisation and Prediction](https://arxiv.org/pdf/1611.08563v3.pdf) - [G. Singh](http://gurkirt.github.io/) et al., ICCV2017. [[code]](https://github.com/gurkirt/realtime-action-detection)
 * [AMTnet: Action-Micro-Tube regression by end-to-end trainable deep architecture](https://arxiv.org/pdf/1704.04952.pdf) - S. Saha et al., ICCV2017.
+
+  "Propose 3D RPN using two frames with an arbitrary interval: Only using RGB frames, no flow frames"
+  
+  - Incorporating temporal dependencies by 3D RPN using two frames
+  - 3D RPN is a straghtforward extension of 2D RPN
+    - Input of the 3D RPN is an element-wise summation of Conv5 features from two VGGNets for two frames with an arbitrary interval (using 1, or 2 frames interval in practice)
+    - Output of the 3D RPN is two sets of bounding boxes corresponding to two input frames: one set of bounding boxes for the first frame, and the other set of bounding boxes for the second frame
+  - Instead of RoIPooling, bilinear interpolation is used to get a fixed size feature vector
+  - Only using RGB frames, no flow frames
+  - Not showing very strong performance (video mAP) on UCF-101 or J-HMDB
+    
 * [Am I Done? Predicting Action Progress in Videos](https://arxiv.org/abs/1705.01781) - F. Becattini et al., BMVC2017.
 * [Generic Tubelet Proposals for Action Localization](https://arxiv.org/abs/1705.10861) - J. He et al., arXiv2017.
 * [Incremental Tube Construction for Human Action Detection](https://arxiv.org/pdf/1704.01358.pdf) - H. S. Behl et al., arXiv2017.
