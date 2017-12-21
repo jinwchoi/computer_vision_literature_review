@@ -9,6 +9,19 @@ Jinwoo's literature review on computer vision and machine learning papers
 ## Action Recognition
 
 ### Spatio-Temporal Action Detection
+* [Human Action Localization with Sparse Spatial Supervision](https://arxiv.org/pdf/1605.05197.pdf) - P. Weinzaepfel et al., arXiv2017. 
+
+   "Action Detection using Sprase Spatial Supervision"
+   - Only use 1/5 bounding box annotation(s) per tube for training
+   - Use human detector and tracking-by-detection method to obtain human tubes
+     - Human detector is Faster R-CNN trained on MPII Human Pose dataset
+     - Classify the human tubes afterwards
+   - Use IDT + ConvNet features
+   - Introduce a new untrimmed, weakly supervised action detection dataset, DALY
+   - Using all bounding box annotations and 1/5 bounding box annotation(s) show similar video mAP
+     - However, even with the all bounding box annotations, the performance is inferior than the state-of-the-art methods
+   
+
 * [Unsupervised Action Discovery and Localization in Videos](http://openaccess.thecvf.com/content_ICCV_2017/papers/Soomro_Unsupervised_Action_Discovery_ICCV_2017_paper.pdf) - K. Soomro and M. Shah, ICCV2017.
 
   "Unsupervised Spatio-Temporal Action Detection"
