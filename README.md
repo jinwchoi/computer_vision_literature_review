@@ -23,6 +23,14 @@ Jinwoo's literature review on computer vision and machine learning papers
    - Shows competitive performance (in terms of AUC) compared to supervised methods
    - Might be applied for weakly supervised action detection problem solving
 
+* [Spatial-Aware Object Embeddings for Zero-Shot Localization and Classification of Actions](https://arxiv.org/pdf/1707.09145.pdf) - P. Mettes and C. G. M. Snoek, ICCV2017.
+
+   "Zero-Shot action detection/classification method using actor, object, actor-object relationship, and global context"
+    - Zero-Shot learning method: no training videos of action required
+    - Proposed spatial-aware object embedding: During test time, on top of object and action detectors, actions, objects, and their interactions are used to detect/classify actions in the given frame
+    - Use word2vec representation to narrow down the possible objects given an action class
+    - Global objects (objects far away from the actors) are also incorporated to boost the performance
+    
 * [Action Tubelet Detector for Spatio-Temporal Action Localization](https://arxiv.org/abs/1705.01861) - V. Kalogeiton et al., ICCV2017. [[code]](https://github.com/vkalogeiton/caffe/tree/act-detector) [[project web]](http://thoth.inrialpes.fr/src/ACTdetector/)
 * [Tube Convolutional Neural Network (T-CNN) for Action Detection in Videos](https://128.84.21.199/pdf/1703.10664.pdf) - [R. Hou](http://www.cs.ucf.edu/~rhou/) et al., ICCV2017. [[project web]](http://crcv.ucf.edu/projects/TCNN/)
 * [Chained Multi-stream Networks Exploiting Pose, Motion, and Appearance for Action Classification and Detection](https://arxiv.org/abs/1704.00616) - M. Zolfaghari et al., ICCV2017. [[project web]](https://lmb.informatik.uni-freiburg.de/projects/action_chain/)
