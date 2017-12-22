@@ -93,7 +93,22 @@ Jinwoo's literature review on computer vision and machine learning papers
 
 ### Temporal Action Detection
 * [Temporal Action Detection with Structured Segment Networks](http://cn.arxiv.org/pdf/1704.06228v2) - Y. Zhao et al., ICCV2017. [[code]](https://github.com/yjxiong/action-detection) [[project web]](http://yjxiong.me/others/ssn/)
-
+   
+   "Temporal Action Detection using temporal pyramid feature and completeness classifier"
+    - Works on top of temporal proposal method
+      - Temporal proposal method is also proposed: "Temporal Actionness Grouping (TAG)"
+        - On top of temporal actionness scores, use water-shed algorithm to group the temporal actioneess scores to obtain temporal proposals
+    - Given an input proposal, generate an augmented proposal
+      - Augmented proposal has a longer temporal extent to both directions (before and after) 
+      - Notion of "start", "end", and "course" stages: course means the initial proposal, "start" means the frames before the initial proposal starts, "end" means the frames after the initial proposal ends
+        - Incorporate the temporal context before and after the actions
+    - Divide the augmented proposal into 9 snippets
+    - Construct a temporal pyramid feature for the "course" stage
+    - Two classifiers: "Action classifier" and "Completeness classifier"
+      - Action classifier: a normal multi-class classifer
+      - Completeness classifier: a class-specific binary classifier to determine each actions is complete or not
+    - State-of-the-art performance on temporal action detecction
+      
 * [Temporal Context Network for Activity Localization in Videos](https://arxiv.org/pdf/1708.02349.pdf) - X. Dai et al., ICCV2017.
 
    "Temporal Activity Detection method incorporating temporal context"
