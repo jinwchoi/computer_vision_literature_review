@@ -11,7 +11,7 @@ Jinwoo's literature review on computer vision and machine learning papers
 ### Spatio-Temporal Action Detection
 * [Human Action Localization with Sparse Spatial Supervision](https://arxiv.org/pdf/1605.05197.pdf) - P. Weinzaepfel et al., arXiv2017. 
 
-   "Action Detection using Sprase Spatial Supervision"
+   "Action Detection using Sparse Spatial Supervision"
    - Only use 1/5 bounding box annotation(s) per tube for training
    - Use human detector and tracking-by-detection method to obtain human tubes
      - Human detector is Faster R-CNN trained on MPII Human Pose dataset
