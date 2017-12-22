@@ -50,14 +50,12 @@ Jinwoo's literature review on computer vision and machine learning papers
 * [TORNADO: A Spatio-Temporal Convolutional Regression Network for Video Action Proposal](http://openaccess.thecvf.com/content_ICCV_2017/papers/Zhu_TORNADO_A_Spatio-Temporal_ICCV_2017_paper.pdf) - H. Zhu et al., ICCV2017. 
 
   "Spatio-Temporal action proposal using Spatial and Temporal networks"
-
   In this paper, two networks are introduced to capture spatial and temporal contexts for spatio-temporal action proposal generation. Temporal context is captured by ConvLSTM and spatial context is captured by a plain ConvNet. Each network predicts frame-level bounding box proposals with confidence and actionness/backgroundness scores. They link the frame-level proposals temporally to generate tube proposals by dynamic programming with confidence scores and overlaps. Then the tube proposals are temporally trimmed by the peak actionness detection algorithm. They use both RGB and Flow as input modalities. Evaluation metrics are ABO, MABO and recall. UCF-101 and UCF-Sports are their testbeds.
 
 * [Online Real time Multiple Spatiotemporal Action Localisation and Prediction](https://arxiv.org/pdf/1611.08563v3.pdf) - [G. Singh](http://gurkirt.github.io/) et al., ICCV2017. [[code]](https://github.com/gurkirt/realtime-action-detection)
 * [AMTnet: Action-Micro-Tube regression by end-to-end trainable deep architecture](https://arxiv.org/pdf/1704.04952.pdf) - S. Saha et al., ICCV2017.
 
    "Propose 3D RPN using two frames with an arbitrary interval: Only using RGB frames, no flow frames"
-  
     - Incorporating temporal dependencies by 3D RPN using two frames
     - 3D RPN is a straghtforward extension of 2D RPN
       - Input of the 3D RPN is an element-wise summation of Conv5 features from two VGGNets for two frames with an arbitrary interval (using 1, or 2 frames interval in practice)
@@ -94,14 +92,22 @@ Jinwoo's literature review on computer vision and machine learning papers
 * [Fast Action Proposals for Human Action Detection and Search](http://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Yu_Fast_Action_Proposals_2015_CVPR_paper.pdf) - G. Yu and J. Yuan, CVPR2015. Note: code for FAP is NOT available online. Note: Aka FAP.
 
 ### Temporal Action Detection
+* [Temporal Context Network for Activity Localization in Videos](https://arxiv.org/pdf/1708.02349.pdf) - X. Dai et al., ICCV2017.
+
+   "Temporal Activity Detection method incorporating temporal context"
+    - Temporal context means a temporal proposal with a temporal extent larger than the actual action extent
+    - Propose temporal anchors with various scales for each temporal position
+    - When encoding a feature, concat features from two scales to incorporate temporal context
+      - Apply temporal convolution to further incorporate temporal context
+    - Temporal context does help: it is shown by ablation study
+    - State-of-the-art performance on ActivityNet and THUMOS14
+
+
 * [Detecting the Moment of Completion: Temporal Models for Localising Action Completion](https://arxiv.org/abs/1710.02310) - F. Heidarivincheh et al., arXiv2017.
 
   "A trial for detecting action completions using ConvNet + HMM/LSTM."
-
   In this paper, we try to detect a moment of an action completion. We want to separate pre-completion and post-completion of an action frame-by-frame. We define the "completion" as the "goal" of an action is achieved. We use HMM and LSTM on top of ConvNet feature to detect a completion of an action. 
-
   For HMM, we have 2 hidden states, pre and post. The parameters of HMM, initial and transition probs, covariance matrices and mean vectors are learnt from training data. For LSTM, we feed fc7 feature and per-frame labels (pre or post) to LSTM as an input.
-
   Experimental results are quite trivial. Both models can detect the completion of an action with a reasonable accuracy, 75% within 10 frames, under strong assumptions: temporally trimmed sequences (no multiple actions per sequence), momentary completion (completion should be detected using only one frame even for human), and uniform prior for completion (50:50 chance of complete vs. incomplete).
 
 * [CDC: Convolutional-De-Convolutional Networks for Precise Temporal Action Localization in Untrimmed Videos](https://arxiv.org/abs/1703.01515/) - Z. Shou et al., CVPR2017. [[code]](https://bitbucket.org/columbiadvmm/cdc)
@@ -128,7 +134,6 @@ Jinwoo's literature review on computer vision and machine learning papers
 * [Attentional Pooling for Action Recognition](https://arxiv.org/abs/1711.01467) - R. Girdhar and D. Ramanan, NIPS2017.
 
   "New pooling method with attention for action recognition"
-
   In this paper, an attention weighted pooling method is proposed. With a rank 1 approximation of second-order pooling and manipulating the order of matrix multiplications, attention pooling can be veiwed as a combination of class-agnostic bottom-up saliency and class-specific top-down attention. We can replace the average pooling operations in the ResNet architecture by the proposed attention pooling. With the attention pooling, we can get state-of-the-art performance on HMDB51 (video), HICO and MPII (image) dataset.
 
 * [Fully Context-Aware Video Prediction](https://arxiv.org/pdf/1710.08518v1.pdf) - Byeon et al., arXiv2017.
@@ -144,19 +149,15 @@ Jinwoo's literature review on computer vision and machine learning papers
 * [Rethinking Spatiotemporal Feature Learning For Video Understanding](https://arxiv.org/pdf/1712.04851.pdf) - S. Xie et al., arXiv2017. 
 
   "Improving I3D, called S3D-G"
-
   In this paper, I3D, which inflates all the 2D filters of the InceptionNet to 3D, is enhanced. First, we replace 3D convolutions in a bottom layers to 2D and get higher accuracy and computation efficiency and more compact model. Second, we separate temporal convolution from spatial convolution in every 3D convolution layer. This also makes higher accuracy, more compact model, and faster speed. Finally, spatiotemporal gating is introduced to further boost the accuracy. We show their model performance on the large scale Kinetics dataset for an ablation study. Also we show the proposed model, S3D-G, is generalizable to other tasks such as action classification and detection. 
-
-  Action classification performance: 96.8% on UCF-101, 75.9% on HMDB-51 (pretrained on Kinetics)
-  Action detection performance: 80.1% on UCF-101, 72.1% on JHMDB (pretrained on Kinetics)
-  Maybe most gains come from the Kinetics dataset pretraining.
+   - Action classification performance: 96.8% on UCF-101, 75.9% on HMDB-51 (pretrained on Kinetics)
+   - Action detection performance: 80.1% on UCF-101, 72.1% on JHMDB (pretrained on Kinetics)
+   - Maybe most gains come from the Kinetics dataset pretraining.
 
 * [ConvNet Architecture Search for Spatiotemporal Feature Learning](https://arxiv.org/abs/1708.05038) - D. Tran et al., arXiv2017. Note: Aka Res3D. [[code]](https://github.com/facebook/C3D): In the repository, C3D-v1.1 is the Res3D implementation.
 
   "3D version of ResNet"
-
   In this paper, a 3D version of Residual Network is introduced to better encode spatio-temporal information in a video by extensive experimental search. We fix the number of parameters to 33M and conduct extensive experiments to find an optimal architecture. The Res3D contains 1) skip connections, 2) using frame sampling rate of 2 or 4 (optimal on UCF-101), 3) spatial resolution 112x112, 4) layer depth 18. We also find that using 3D conv is better than using 2D conv or 2.5D conv (spatial and temporal conv separated). 
-
   Shows higher accuracy than C3D on UCF101 and HMDB51. 85.8 vs. 82.3 and 54.9 vs. 51.6 respectively. 2 times faster speed and 2 times smaller model size.
 
 * [Learning Spatio-Temporal Representation with Pseudo-3D Residual Networks](http://openaccess.thecvf.com/content_ICCV_2017/papers/Qiu_Learning_Spatio-Temporal_Representation_ICCV_2017_paper.pdf) - Z. Qui et al., ICCV2017. [[code]](https://github.com/ZhaofanQiu/pseudo-3d-residual-networks)
@@ -167,7 +168,6 @@ Jinwoo's literature review on computer vision and machine learning papers
 * [PathTrack: Fast Trajectory Annotation with Path Supervision](http://openaccess.thecvf.com/content_ICCV_2017/papers/Manen_PathTrack_Fast_Trajectory_ICCV_2017_paper.pdf) - S. Manen et al., ICCV2017.
 
   "Fast bounding box annotation generation method using path supervision. We may apply this kind of technique to solve weakly supervised detection tasks."
-
   In this paper, the goal is generate a large scale multiple-object tracking (MOT) dataset using a path-level supervision. With Amazon Mechanical Turk, they get inputs from users to annotation bounding boxes of objects in various videos. The input annotations are point-wise paths. Using an off-the-shelf object detector and the path annotations, they can automatically generate the full bounding box trajectory annotations. They link and label the detections by optimizing an energy function consists of a unary term and a pairwise term. The unary term penalizes the label outside the bounding box and the pairwise term penalizes the affine detections being assigned to diffrent clusters. By using the proposed method, they can generate a large scale dataset for MOT a with minimum supervision envolved.
 
 
