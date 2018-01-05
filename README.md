@@ -235,8 +235,22 @@ Jinwoo's literature review on computer vision and machine learning papers
 ## Pose Estimation
 
 ### Pose Estimation
+* [Detect-and-Track: Efficient Pose Estimation in Videos](https://arxiv.org/abs/1712.09184) - R. Girdhar et al., arXiv2017.
+
+
+   "Pose tracking by 3D Mask R-CNN"
+   - Two-stage approach: 1)dense prediction, 2)link (track) afterwards
+   - Use 3D Mask R-CNN to detect body keypoints every frame
+     - Convert the 2D convolutions of ResNet to 3D convolutions
+     - First show that using the 2D Mask R-CNN achieves the state-of-the-art performance
+     - Then show that using the proposed "inflated" 3D Mask R-CNN shows better performance than 2D counter part when using the same backbone architecture
+     - Propose tube proposal network which regresses tube anchors
+       - Tube anchors are nothing but spatial anchors duplicated in time
+   - Use bipartite matching to link the predictions over time
+   - Evaluate on PoseTrack dataset
+
 * [OpenPose Library](https://github.com/CMU-Perceptual-Computing-Lab/openpose) - Caffe based realtime pose estimation library from CMU.
-* [Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields](https://arxiv.org/abs/1611.08050) - Z. Cao et al., CVPR2017. [[code]](https://github.com/ZheC/Realtime_Multi-Person_Pose_Estimation) depends on the [[caffe RT pose]](https://github.com/CMU-Perceptual-Computing-Lab/caffe_rtpose.git) - Earlier version of OpenPose from CMU.
+* [Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields](https://arxiv.org/abs/1611.08050) - Z. Cao et al., CVPR2017. [[code]](https://github.com/ZheC/Realtime_Multi-Person_Pose_Estimation) depends on the [[caffe RT pose]](https://github.com/CMU-Perceptual-Computing-Lab/caffe_rtpose.git) - Earlier version of OpenPose from CMU
 
 
 ## Licenses
