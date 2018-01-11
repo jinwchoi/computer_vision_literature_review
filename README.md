@@ -196,8 +196,6 @@ Jinwoo's literature review on computer vision and machine learning papers
 * [Moments in Time](http://moments.csail.mit.edu/), [paper](http://moments.csail.mit.edu/data/moments_paper.pdf)
 * [AVA](https://research.google.com/ava/), [paper](https://arxiv.org/abs/1705.08421), [[INRIA web]](http://thoth.inrialpes.fr/ava/getava.php) for missing videos
 * [Kinetics](https://deepmind.com/research/open-source/open-source-datasets/kinetics/), [paper](https://arxiv.org/pdf/1705.07750.pdf)
-* [YouTube-8M](https://research.google.com/youtube8m/), [technical report](https://arxiv.org/abs/1609.08675)
-* [YouTube-BB](https://research.google.com/youtube-bb/), [technical report](https://arxiv.org/pdf/1702.00824.pdf)
 * [DALY](http://thoth.inrialpes.fr/daly/) Daily Action Localization in Youtube videos. Note: Weakly supervised action detection dataset. Annotations consist of start and end time of each action, one bounding box per each action per video.
 * [20BN-JESTER](https://www.twentybn.com/datasets/jester), [20BN-SOMETHING-SOMETHING](https://www.twentybn.com/datasets/something-something)
 * [ActivityNet](http://activity-net.org/) Note: They provide a download script and evaluation code [here](https://github.com/activitynet) .
@@ -223,14 +221,27 @@ Jinwoo's literature review on computer vision and machine learning papers
 
 ## Object Recognition
 
-### Object Detection
+### Object Detection (Image)
 * [Faster R-CNN](https://arxiv.org/abs/1506.01497) - S. Ren et al., NIPS2015. [[official MatCaffe code]](https://github.com/ShaoqingRen/faster_rcnn), [[PyCaffe]](https://github.com/rbgirshick/py-faster-rcnn), [[TensorFlow]](https://github.com/smallcorgi/Faster-RCNN_TF), [[Another TF implementation]](https://github.com/CharlesShang/TFFRCNN) [[Keras]](https://github.com/yhenon/keras-frcnn) - State-of-the-art object detector.
 * [YOLO](https://pjreddie.com/media/files/papers/yolo.pdf) - J. Redmon et al., CVPR2016. [[official code]](https://github.com/pjreddie/darknet.git), [[TensorFLow]](https://github.com/gliese581gg/YOLO_tensorflow) - Fast object detector.
 * [YOLO9000](https://arxiv.org/abs/1612.08242) - J. Redmon and A. Farhadi, CVPR2017. [[official code]](https://pjreddie.com/darknet/yolo/) - State-of-the-art object detector which can detect 9000 objects in realtime.
 * [SSD](https://arxiv.org/abs/1512.02325) - W. Liu et al., ECCV2016. [[official PyCaffe code]](https://github.com/weiliu89/caffe/tree/ssd), [[TensorFlow]](https://github.com/balancap/SSD-Tensorflow), [[Keras]](https://github.com/rykov8/ssd_keras) - State-of-the-art object detector with realtime processing speed.
 * [Mask R-CNN](https://arxiv.org/abs/1703.06870) - K. He et al., [[TensorFlow + Keras]](https://github.com/matterport/Mask_RCNN), [[MXNet]](https://github.com/TuSimple/mx-maskrcnn), [[TensorFlow]](https://github.com/CharlesShang/FastMaskRCNN), [[PyTorch]](https://github.com/felixgwu/mask_rcnn_pytorch) - State-of-the-art object detection/instance segmentation algorithm.
 
+### Video Object Detection
+* [Detect to Track and Track to Detect] - C. Feichtenhofer et al., ICCV2017. [[code]](https://github.com/feichtenhofer/detect-track), [[project web]](http://www.robots.ox.ac.uk/~vgg/research/detect-track/)
+   "Video Object Detection and Tracking using R-FCN"
+    - On top of two frame-level ConvNets one is for frame t and the other is for frame t + $\tau$
+    - Propose a multi-task objective consists of 1)classification loss, 2)bbox regression loss, 3)tracking loss
+      - The tracking loss is smooth L1 loss between ground truth and a "tracking regression value" for frame t + $\tau$
+      - Correlation feature map between the detection at frame t and search candidates at frame t + $\tau$ is computed
+      - RoI Pooling operation is applied to the correlation feature map
+    - Evaluation on ImageNET VID dataset
 
+### Video Object Detection Datasets
+* [ImageNet VID](http://image-net.org/challenges/LSVRC/2017/download-images-1p39.php)
+* [YouTube-8M](https://research.google.com/youtube8m/), [technical report](https://arxiv.org/abs/1609.08675)
+* [YouTube-BB](https://research.google.com/youtube-bb/), [technical report](https://arxiv.org/pdf/1702.00824.pdf)
 
 ## Pose Estimation
 
