@@ -230,6 +230,7 @@ Jinwoo's literature review on computer vision and machine learning papers
 
 ### Video Object Detection
 * [Detect to Track and Track to Detect] - C. Feichtenhofer et al., ICCV2017. [[code]](https://github.com/feichtenhofer/detect-track), [[project web]](http://www.robots.ox.ac.uk/~vgg/research/detect-track/)
+   
    "Video Object Detection and Tracking using R-FCN"
     - On top of two frame-level ConvNets one is for frame t and the other is for frame t + $\tau$
     - Propose a multi-task objective consists of 1)classification loss, 2)bbox regression loss, 3)tracking loss
