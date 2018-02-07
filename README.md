@@ -239,7 +239,19 @@ Jinwoo's literature review on computer vision and machine learning papers
       - Correlation feature map between the detection at frame t and search candidates at frame t + $\tau$ is computed
       - RoI Pooling operation is applied to the correlation feature map
     - Evaluation on ImageNET VID dataset
+    
+* [Flow-Guided Feature Aggregation for Video Object Detection] - X. Zhu et al., ICCV2017. [[code]](https://github.com/msracver/Flow-Guided-Feature-Aggregation), aka FGFA
 
+   "Using optical flow to guide the temporal feature aggregation for frame-level detection"
+    - Temporally aggregating the frame-level features
+      - Use FlowNet to estimate the motion between reference frame and nearby frames
+      - Warp the nearby frames' feature map by a bilinear warping function to the reference frame
+      - Temporally aggregate the feature map of the reference frame, and feature maps of the warped nearby frame
+        - Use element-wise summation with adaptive weights for the aggregation
+        - Adaptive weights are computed by cosine similarity measure between the reference frame feature and the nearyby frame feature
+    - Apply temporal dropout during training
+      - Dropping out the random nearby frames, e.g. Dropping out 3 frames when testing # of frames is 5 and training number of frames is 2
+        
 ### Video Object Detection Datasets
 * [ImageNet VID](http://image-net.org/challenges/LSVRC/2017/download-images-1p39.php)
 * [YouTube-8M](https://research.google.com/youtube8m/), [technical report](https://arxiv.org/abs/1609.08675)
