@@ -250,7 +250,8 @@ Jinwoo's literature review on computer vision and machine learning papers
         - Use element-wise summation with adaptive weights for the aggregation
         - Adaptive weights are computed by cosine similarity measure between the reference frame feature and the nearyby frame feature
     - Apply temporal dropout during training
-      - Dropping out the random nearby frames, e.g. Dropping out 3 frames when testing # of frames is 5 and training number of frames is 2
+      - Dropping out the random nearby frames, e.g. Dropping out 3 frames when testing frame range is 5 and training frame range is 2
+      - This means we could incorporate long term temporal context by using long testing frame range but at the same time, we could use only training frame range 2 to reduce the computation/memory requirements when training 
         
 ### Video Object Detection Datasets
 * [ImageNet VID](http://image-net.org/challenges/LSVRC/2017/download-images-1p39.php)
