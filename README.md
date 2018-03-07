@@ -163,6 +163,7 @@ Jinwoo's literature review on computer vision and machine learning papers
 * [Convolutional Two-Stream Network Fusion for Video Action Recognition](https://arxiv.org/pdf/1604.06573.pdf) - C. Feichtenhofer et al., CVPR2016. [[code]](https://github.com/feichtenhofer/twostreamfusion)
 
 ### Video Representation
+* [A Closer Look at Spatiotemporal Convolutions for Action Recognition](https://arxiv.org/pdf/1711.11248.pdf) - D. Tran et al., CVPR2018.
 * [Rethinking Spatiotemporal Feature Learning For Video Understanding](https://arxiv.org/pdf/1712.04851.pdf) - S. Xie et al., arXiv2017. 
 
   "Improving I3D, called S3D-G"
