@@ -164,6 +164,28 @@ Jinwoo's literature review on computer vision and machine learning papers
 
 ### Video Representation
 * [A Closer Look at Spatiotemporal Convolutions for Action Recognition](https://arxiv.org/pdf/1711.11248.pdf) - D. Tran et al., CVPR2018.
+   "2D+1D separate convolution is better than 3D convolution"
+   - 3D ConvNet architecture search on action classification task
+   - Baselines implemented using vanilla ResNet-like architecture (has a skip connection)
+      - R2D: 2D convolution over the entire clip. Reshape 4D input tensor x of shape LxHxWx3 to 3LxHxW.
+      - fR2D: 2D convolution over frames.
+      - R3D: Use 3D convolutions
+      - MCx: Use 3D convolutions in the first x layers, use 2D convolutions in the remaining layers
+      - rMCx: Use 2D convolutions in the first x layers, use 3D convolutions in the remaining layers
+      - R(2+1)D:Use 2D convolution + 1D convolutions throughout the entire network.
+   - Note that R(2+1)D and R3D has same number of parameters
+   - Datasets used: Sports 1M, Kinetics, UCF101, HMDB51
+   - Observations            
+      - 2D + 1D convolution is better than 3D convolution, 2D convolution and 3D and 2D convolutions mixed
+      - Mixed 3D and 2D models: MCx(3D conv early) is beter than rMCx(3D conv in deeper layers) 
+        - Motion pattern is important in earlier layers
+      - R(2+1)D is faster than R3D
+    - R(2+1)D shows slightly worse performance than I3D on Kinetics
+      - I3D is pretrained on ImageNet
+    - Why R(2+1)D is better than R3D?
+      - Double # of non-linearity layers
+      - Better for optimization (note the lower training error)
+   
 * [Rethinking Spatiotemporal Feature Learning For Video Understanding](https://arxiv.org/pdf/1712.04851.pdf) - S. Xie et al., arXiv2017. 
 
   "Improving I3D, called S3D-G"
