@@ -174,14 +174,17 @@ Jinwoo's literature review on computer vision and machine learning papers
       - rMCx: Use 2D convolutions in the first x layers, use 3D convolutions in the remaining layers
       - R(2+1)D:Use 2D convolution + 1D convolutions throughout the entire network.
    - Note that R(2+1)D and R3D has same number of parameters
+   - Sample bunch of clips to do a video classification (avg pooling is conducted to aggreate clip-level predictions)
    - Datasets used: Sports 1M, Kinetics, UCF101, HMDB51
    - Observations            
       - 2D + 1D convolution is better than 3D convolution, 2D convolution and 3D and 2D convolutions mixed
       - Mixed 3D and 2D models: MCx(3D conv early) is beter than rMCx(3D conv in deeper layers) 
-        - Motion pattern is important in earlier layers
+        - Motion pattern is important in earlier layers 
+        - This is an opposite observation from [Xie et al.](https://arxiv.org/pdf/1712.04851.pdf)
       - R(2+1)D is faster than R3D
-    - R(2+1)D shows slightly worse performance than I3D on Kinetics
-      - I3D is pretrained on ImageNet
+    - For RGB and flow only, R(2+1)D is better than I3D
+    - For two streams (RGB+flow), R(2+1)D shows slightly worse performance than I3D on Kinetics
+      - Note that I3D is pretrained on ImageNet
     - Why R(2+1)D is better than R3D?
       - Double # of non-linearity layers
       - Better for optimization (note the lower training error)
