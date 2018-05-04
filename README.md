@@ -163,7 +163,7 @@ Jinwoo's literature review on computer vision and machine learning papers
 * [Convolutional Two-Stream Network Fusion for Video Action Recognition](https://arxiv.org/pdf/1604.06573.pdf) - C. Feichtenhofer et al., CVPR2016. [[code]](https://github.com/feichtenhofer/twostreamfusion)
 
 ### Video Representation
-* [A Closer Look at Spatiotemporal Convolutions for Action Recognition](https://arxiv.org/pdf/1711.11248.pdf) - D. Tran et al., CVPR2018.
+* [A Closer Look at Spatiotemporal Convolutions for Action Recognition](https://arxiv.org/pdf/1711.11248.pdf) - D. Tran et al., CVPR2018. [[code]](https://github.com/facebookresearch/R2Plus1D)
    "2D+1D separate convolution is better than 3D convolution"
    - 3D ConvNet architecture search on action classification task
    - Baselines implemented using vanilla ResNet-like architecture (has a skip connection)
