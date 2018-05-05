@@ -167,27 +167,30 @@ Jinwoo's literature review on computer vision and machine learning papers
    "2D+1D separate convolution is better than 3D convolution"
    - 3D ConvNet architecture search on action classification task
    - Baselines implemented using vanilla ResNet-like architecture (has a skip connection)
-      - R2D: 2D convolution over the entire clip. Reshape 4D input tensor x of shape LxHxWx3 to 3LxHxW.
-      - fR2D: 2D convolution over frames.
+      - fR2D: 2D convolutions over frames independently
+      - R2D: 2D convolutions over the entire clip. Reshape 4D input tensor x of shape LxHxWx3 to 3LxHxW      
       - R3D: Use 3D convolutions
       - MCx: Use 3D convolutions in the first x layers, use 2D convolutions in the remaining layers
       - rMCx: Use 2D convolutions in the first x layers, use 3D convolutions in the remaining layers
-      - R(2+1)D:Use 2D convolution + 1D convolutions throughout the entire network.
-   - Note that R(2+1)D and R3D has same number of parameters
-   - Sample bunch of clips to do a video classification (avg pooling is conducted to aggreate clip-level predictions)
-   - Datasets used: Sports 1M, Kinetics, UCF101, HMDB51
+      - R(2+1)D: Use 2D convolutions + 1D convolutions throughout the entire network.
+                 Note that R(2+1)D and R3D have roughly same number of parameters and same computation complexity
+   - For all the baselines. they sample bunch of clips to do a video classification (avg pooling is conducted to aggreate clip-level predictions)
+      - In contrast, I3D just use a single clip with L=64 frames by random sampling (for both training and testing)
+   - Datasets used:
+      - Training from scratch: Sports 1M, Kinetics
+      - Transfer learning: UCF101, HMDB51
    - Observations            
       - 2D + 1D convolution is better than 3D convolution, 2D convolution and 3D and 2D convolutions mixed
       - Mixed 3D and 2D models: MCx(3D conv early) is beter than rMCx(3D conv in deeper layers) 
         - Motion pattern is important in earlier layers 
-        - This is an opposite observation from [Xie et al.](https://arxiv.org/pdf/1712.04851.pdf)
-      - R(2+1)D is faster than R3D
-    - For RGB and flow only, R(2+1)D is better than I3D
-    - For two streams (RGB+flow), R(2+1)D shows slightly worse performance than I3D on Kinetics
-      - Note that I3D is pretrained on ImageNet
-    - Why R(2+1)D is better than R3D?
-      - Double # of non-linearity layers
-      - Better for optimization (note the lower training error)
+        - This is an opposite observation from [Xie et al.](https://arxiv.org/pdf/1712.04851.pdf)      
+   - Performance
+     - For RGB only and flow only models, R(2+1)D is better than I3D
+     - R(2+1)D two-stream model shows slightly worse performance than I3D two-stream model on Kinetics
+       - Note that I3D is pretrained on ImageNet, while R(2+1)D is trained from scratch
+     - Why R(2+1)D is better than R3D (single RGB/Flow models)?
+       - Double number of non-linearity layers
+       - Better for optimization (note R(2+1)D shows lower training error than R3D)
    
 * [Rethinking Spatiotemporal Feature Learning For Video Understanding](https://arxiv.org/pdf/1712.04851.pdf) - S. Xie et al., arXiv2017. 
 
